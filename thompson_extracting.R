@@ -1,7 +1,8 @@
 library(dplyr)
 library(sqldf)
 
-data <- read.csv("J:\\雿办澊韯癨\thompson_clean2.csv")
+data <- read.csv("J:\\单捞磐\\thompson_clean3.csv")
 
-fb <- sqldf("select * from data where Company_Name like 'facebook%'")
-write.csv(fb, "J:\\雿办澊韯癨\facebook.csv")
+ub <- sqldf("select * from data where Company_Name like 'Uber%'")
+ubt = subset(ub, Company_Name=='Uber Technologies Inc')
+write.csv(ubt, "J:\\单捞磐\\uber.csv")

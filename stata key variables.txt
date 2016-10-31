@@ -1,0 +1,20 @@
+equity_amount_disclosed_usd_mil : 펀딩금액
+
+investment_date : 펀딩 날짜
+
+round_number : 라운드
+
+round_of_financing : Series 알려줌
+
+valuation_at_transaction_date_us : 당시 밸류에이션
+
+company_investment_stage_1_at_ro : 펀딩 방법 및 목적
+
+company_investment_stage_2_at_ro
+
+company_investment_stage_3_at_ro
+
+firm_name
+
+fund_name
+
