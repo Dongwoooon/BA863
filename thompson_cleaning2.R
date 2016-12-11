@@ -24,6 +24,8 @@ data <- subset(data, select = -c(MoneyTree_Industry, NAIC_Code, NAIC_Description
                                  Total_Known_Equity_Invested_by_Firm_to_Date_USD_Mil, Total_Known_Equity_Invested_by_Fund_to_Date_USD_Mil, Total_Number_of_Companies_Invested_in_by_Firm,
                                  Total_Number_of_Companies_Invested_in_by_Fund, Type_of_Preferred_Stock, Valuation_Direction))
 
+write.csv(data, "J:\\데이터\\thompson_clean4.csv")
+
 # IT만 뽑아와야지
 IT <- sqldf("select * from data where Company_VE_Primary_Industry_Class like 'Information%'")
 IT <- subset(IT, Company_Technology_Application!='Non-Internet Related')

@@ -4,7 +4,6 @@ library(sqldf)
 data <- read.csv("J:\\데이터\\thompson_clean2.csv")
 
 data <- subset(data, select = -Company_City_Branch_Office)
-data <- subset(data, select = -Company_Founded_Date)
 data <- subset(data, select = -Company_Business_Description_Short)
 data <- subset(data, select = -Firm_Founded_Year__Real_Estate)
 data <- subset(data, select = -Firm_Congressional_District)
@@ -28,4 +27,4 @@ data <- subset(data, select = -c(Fund_North_American_Location, Fund_Sequence, Fu
                                  Multiple_of_the_Liquidation_Preference, Pay_to_Play_Penalties, Portfolio_Status, Real_Estate_Sector,
                                  Redemption_at_Investor_s_Option, Reorganization_or_Recapitalization))
 
-write.csv(data, "J:\\데이터\\thompson_clean3.csv")
+write.csv(data, "J:\\데이터\\thompson_clean3.csv", row.names=FALSE)

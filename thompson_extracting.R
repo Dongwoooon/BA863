@@ -26,9 +26,14 @@ US_company = distinct(US, Company_Name)
 US_company <- arrange(US_company, Company_Name)
 US_BM = distinct(US, Company_VE_Primary_Industry_Sub_Group_3)
 US_BM <- arrange(US_BM, Company_VE_Primary_Industry_Sub_Group_3)
-write.csv(US, "J:\\데이터\\US_internet_ipo_with_sic.csv")
+write.csv(US, "J:\\데이터\\US_internet_ipo_with_sic.csv",row.names=FALSE)
 
 #회사 name 뽑기
-data<- read.csv("J:\\데이터\\US_internet_ipo_with_sic.csv")기
+data<- read.csv("J:\\데이터\\US_internet_ipo_with_sic.csv")
 US_name <- distinct(data, Company_Name)
 write.table(US_name, "J:\\데이터\\US_internet_ipo_companyname.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+
+US_BM = distinct(data, Company_VE_Primary_Industry_Sub_Group_3)
+US_BM <- arrange(US_BM, Company_VE_Primary_Industry_Sub_Group_3)
+
+data<-arrange(data, Company_Name)

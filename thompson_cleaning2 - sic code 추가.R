@@ -3,7 +3,7 @@ library(sqldf)
 
 data <- read.csv("J:\\데이터\\thompson_clean3.csv")
 
-data <- subset(data, select = -c(X.2, X.1, X_1, X_1.1, X, Capped_Participating_Preferred, 
+data <- subset(data, select = -c(X.1, X_1, X_1.1, X, Capped_Participating_Preferred, 
                                  Company_Accountant, Company_Area_Code, Company_Legal_Counsel, Company_MoneyTree_Region,
                                  Company_Number_of_Employees, Company_Zip_Code, Company_Zip_Code_Branch_Office, Deal_Value_USD_Mil, 
                                  Debt_Amount_USD_Mil, Firm__First_Investment_Date, Firm__Last_Investment_Date, Firm__Total_Number_of_Deals,
@@ -23,6 +23,9 @@ data <- subset(data, select = -c(MoneyTree_Industry, NAIC_Code, NAIC_Description
                                  Total_Estimated_Equity_Invested_by_Firm_to_Date_USD_Mil, Total_Estimated_Equity_Invested_by_Fund_to_Date_USD_Mil,
                                  Total_Known_Equity_Invested_by_Firm_to_Date_USD_Mil, Total_Known_Equity_Invested_by_Fund_to_Date_USD_Mil, Total_Number_of_Companies_Invested_in_by_Firm,
                                  Total_Number_of_Companies_Invested_in_by_Fund, Type_of_Preferred_Stock, Valuation_Direction))
+
+write.csv(data, "J:\\데이터\\thompson_clean4.csv", row.names=FALSE)
+
 
 # IT만 뽑아와야지
 IT <- sqldf("select * from data where Company_VE_Primary_Industry_Class like 'Information%'")
@@ -45,8 +48,8 @@ IT4 <- sqldf("select * from IT3 where Company_VE_Primary_Industry_Sub_Group_1 li
 ### 하고 봤더니 IT3[21]에 internet specific만 골라 놓은거네... 진작 이걸로 할걸
 
 # IPO 한 놈들만 골라보자
-IT.ipo <- subset(IT4, IT4[9]!='-')
-count(unique(IT.ipo[13]))   # ipo 회사 몇 개니 - 344개
+IT.ipo <- subset(IT4, IT4[11]!='-')
+count(unique(IT.ipo[15]))   # ipo 회사 몇 개니 - 344개
 
-write.csv(IT4, "J:\\데이터\\internet_with_sic.csv")
-write.csv(IT.ipo, "J:\\데이터\\internet_ipo_with_sic.csv")
+write.csv(IT4, "J:\\데이터\\internet_with_sic.csv",row.names=FALSE)
+write.csv(IT.ipo, "J:\\데이터\\internet_ipo_with_sic.csv",row.names=FALSE)
