@@ -35,10 +35,11 @@ tmp <- arrange(data, Company.Founded.Year)  # founded.year로 오름차순
 clean <- na.omit(tmp)
 clean2 <- subset(clean, Company.Founded.Year!='-')
 
+data <- clean2
 names(data)
 colnames(data) <- gsub("\\.","_",colnames(data)) #colname의 .을 _로 변경
 colnames(data) <- sub("__", "_", colnames(data), fixed=TRUE)        #__를 _로 변경
-colnames(data) <- gsub("\\_$", "", colnames(data))                   #~~_를 ~~로 변경
+colnames(data) <- gsub("\\_$", "", colnames(data))                   #~_를 ~로 변경
 names(data)
 fb <- sqldf("select * from data where Company_Name like 'facebook%'")
 write.csv(data, "J:\\데이터\\thompson_clean2.csv")
